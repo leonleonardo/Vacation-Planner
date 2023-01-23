@@ -1,6 +1,6 @@
 # CEN3031 Project (Travel Planner)
 
-Project Name:
+Project Name: Travel Planner
 
 Project Description:
 
@@ -8,6 +8,7 @@ Group members:
 
     Benjamin Mendoza
     Richard Cusolito
+    Kendall Stansfield-Phillips
 
 Two front-end Developers:
 
@@ -16,6 +17,7 @@ Two front-end Developers:
 Two back-end Developers:
 
     Benjamin Mendoza
+    Kendall Stansfield-Phillips
 
 
 ###########################################################
