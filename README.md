@@ -9,10 +9,12 @@ Group members:
     Benjamin Mendoza
     Richard Cusolito
     Kendall Stansfield-Phillips
+    Leonardo Leon
 
 Two front-end Developers:
 
     Richard Cusolito
+    Leonardo Leon
 
 Two back-end Developers:
 
