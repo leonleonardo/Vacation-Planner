@@ -1,4 +1,4 @@
-# CEN3031 Project (Title TBD)
+# CEN3031 Project (Travel Planner)
 
 Project Name:
 
@@ -7,8 +7,11 @@ Project Description:
 Group members:
 
     Benjamin Mendoza
+    Richard Cusolito
 
 Two front-end Developers:
+
+    Richard Cusolito
 
 Two back-end Developers:
 
