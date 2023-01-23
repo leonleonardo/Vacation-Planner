@@ -27,4 +27,8 @@ In a terminal window, navigate into the folder that is contained by the cloned p
 
 Now, by typing the command 'npm run install-dependencies', your machine should install all necessary dependencies for our project to run.
 
-From here, you may run 'npm start', to fire up both Angular's front-end framework and Go's server-side framework. Or run 'ng test' to run unit tests provided by Karma. For more info on Angular's  refer to https://angular.io/cli.
+From here, a successful run of 'npm start' finishes with "Browser application bundle generation complete" and "Compiled successfully". Although, it is worth testing against Angular's built in unit tests. To do so, run 'ng test', which auto-opens its own Chrome window to test against our project.
+
+Lastly, while during a successful 'npm start' in Chrome, you may open the JavaScript console to show you any potential back end errors in real time.
+
+For more info on Angular's docs refer to https://angular.io/cli.
