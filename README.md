@@ -2,7 +2,7 @@
 
 Project Name: Travel Planner
 
-Project Description:
+Project Description: We are building a Travel Planner that allows the user to type in where they want to go, and what month of the year they're planning on going. Then our program will output the recent weather trends over the last couple years, local food/entertainment spots with the best reviews, etc. If results haven’t been determine for that destination and time frame, we will fetch the info and input it in the database. If it’s already been searched (destination and month) then we can search the database for the predetermined info. Using OpenWeatherAPI, YelpAI, and more(TBD), we will be able to create a seamless interface for our travel-ready users.
 
 Group members:
 
