@@ -10,7 +10,7 @@ If it has already been searched (destination and month) then we can search the d
 
 
 ## Status
-![Open Issues](https://img.shields.io/github/issues/leonleonardo/cen3031)![Closed Issues](https://img.shields.io/github/issues-closed/leonleonardo/cen3031)![Open Pull Requests](https://img.shields.io/github/issues-pr/leonleonardo/cen3031)
+![Open Issues](https://img.shields.io/github/issues/leonleonardo/cen3031) ![Closed Issues](https://img.shields.io/github/issues-closed/leonleonardo/cen3031) ![Open Pull Requests](https://img.shields.io/github/issues-pr/leonleonardo/cen3031)
 
 ## Authors
 
