@@ -7,7 +7,7 @@ import { map } from 'rxjs';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Simple App';
+  title = 'Simple App ';
   }
 
 

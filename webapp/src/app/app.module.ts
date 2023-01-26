@@ -7,14 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule} from './material/material.module';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar.component';
+import { DestinationGrid } from './components/destination-grid';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent
+    DestinationGrid 
   ],
   imports: [
     BrowserModule,
