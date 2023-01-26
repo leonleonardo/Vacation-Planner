@@ -45,6 +45,13 @@ Navigate to the `server` folder
 ```zsh
 cd server
 ```
+
+Install the dependencies
+
+```zsh
+go get
+``` 
+
 Start the backend using air for live reload
 
 ```zsh
@@ -53,14 +60,22 @@ air
 
 The back end will serve on http://localhost:8080.
 
-Navigate to the `webapp` folder, install dependencies,
-and start the front end development server by running:
+Navigate to the `webapp` folder
 
 ```sh
 cd webapp
+```
+Install the dependencies  
+
+```sh
 npm install
+```
+
+Start the frontend server
+
+```sh
 npm start
 ```
-The application will be available on http://localhost:3000.
+The application will be available on http://localhost:4200.
 
 
