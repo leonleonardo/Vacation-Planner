@@ -38,7 +38,6 @@ go version
 npm --version
 air -v
 ```
-## Start in development mode
 
 Navigate to the `server` folder 
 
