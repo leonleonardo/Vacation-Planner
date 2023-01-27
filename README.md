@@ -29,15 +29,16 @@ If it has already been searched (destination and month) then we can search the d
 
 You need to have [Go](https://golang.org/),
 [Node.js](https://nodejs.org/) and,
-[Air](https://github.com/cosmtrek/air).
+[Docker](https://www.docker.com/).
 
 Verify the tools by running the following commands:
 
 ```zsh
 go version
 npm --version
-air -v
+docker -v
 ```
+#### Initializing backend
 
 Navigate to the `server` folder 
 
@@ -45,19 +46,16 @@ Navigate to the `server` folder
 cd server
 ```
 
-Install the dependencies
+Run docker compose to setup server and hot reload
 
 ```zsh
-go get
+docker compose up
 ``` 
 
-Start the backend using air for live reload
+The back end will serve on http://localhost:8181.
 
-```zsh
-air
-```
 
-The back end will serve on http://localhost:8080.
+#### Initializing the frontend
 
 Navigate to the `webapp` folder
 
