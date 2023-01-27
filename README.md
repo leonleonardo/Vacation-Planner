@@ -31,7 +31,7 @@ You need to have [Go](https://golang.org/),
 [Node.js](https://nodejs.org/) and,
 [Docker](https://www.docker.com/).
 
-Verify the tools by running the following commands:
+Verify the tools are installed by running the following commands:
 
 ```zsh
 go version
