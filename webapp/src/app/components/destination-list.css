@@ -1,6 +1,6 @@
 mat-card {
   width: 35%;
-  height: 350px;
+  height: 500px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -10,3 +10,4 @@ section {
   vertical-align: middle;
   height: 100%;
 }
+

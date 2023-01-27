@@ -8,12 +8,14 @@ import { MaterialModule} from './material/material.module';
 
 import { AppComponent } from './app.component';
 import { DestinationList } from './components/destination-list';
+import { DestinationAdd } from './components/destination-add';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    DestinationAdd,
     DestinationList 
   ],
   imports: [
