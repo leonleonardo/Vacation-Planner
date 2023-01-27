@@ -7,14 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule} from './material/material.module';
 
 import { AppComponent } from './app.component';
-import { DestinationGrid } from './components/destination-grid';
+import { DestinationList } from './components/destination-list';
+import { DestinationAdd } from './components/destination-add';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DestinationGrid 
+    DestinationAdd,
+    DestinationList 
   ],
   imports: [
     BrowserModule,
