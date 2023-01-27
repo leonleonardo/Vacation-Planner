@@ -2,21 +2,27 @@ package main
 
 import (
 	"context"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	"encoding/json"
 	"log"
 	"os"
-	"vacation-planner/db"
-	"vacation-planner/web"
-)
+	"net/http"
+    "github.com/gorilla/mux"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 
 func main() {
+	
 	client, err := mongo.Connect(context.TODO(), clientOptions())
+	
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer client.Disconnect(context.TODO())
+
 	mongoDB := db.NewMongo(client)
+	
 	// CORS is enabled only in prod profile
 	cors := os.Getenv("profile") == "prod"
 	app := web.NewApp(mongoDB, cors)
