@@ -8,25 +8,28 @@ import (
     "github.com/jmatth11/yfusion"
     "fmt"
     "os"
-)
-
-const (
-    // Using this line to open config.json
-    // Using config.json because we can include it in ".gitignore", so it leaves out the actual API key from the repo
-    jsonFile, err := os.open("config.json")
-    if err != nil {
-        fmt.Println(err)
-    }s
+    "github.com/joho/godotenv"
 )
 
 func YourHandler(w http.ResponseWriter, r *http.Request) {
     w.Write([]byte("Gorilla!\n"))
 }
 
-    // Get Destination Handler function which takes in a location given from the user and prints out relevant info
-    // Working on getting result information put into json so I can return it for the front-end
+// Get Destination Handler function which takes in a location given from the user and prints out relevant info
+// Working on getting result information put into json so I can return it for the front-end
 func GetDestination(w http.ResponseWriter, r *http.Request) {
+
     w.Header().Set("Content-Type", "application/json")
+
+    // Using godotenv to hide API keys
+    err := godotenv.Load()
+    if err != nil {
+        log.Fatal("Could not load .env file")
+    }
+
+    // Setting key var to YELP
+    yelpAPIKey := os.Getenv("YELP_REST_API_KEY")
+    // secretKey := os.Getenv("YELP_REST_SECRET_KEY")
 
     // db := connect()
     // defer db.Close()
@@ -36,7 +39,7 @@ func GetDestination(w http.ResponseWriter, r *http.Request) {
     destinationLocation := params["location"]
 
     // Starting new Yelp client, and setting all relevant filters for specific search
-    yelp := yfusion.NewYelpFusion(key)
+    yelp := yfusion.NewYelpFusion(yelpAPIKey)
     businessSearch := &yfusion.BusinessSearchParams{}
     businessSearch.SetLocation(destinationLocation)
     businessSearch.SetTerm("food")

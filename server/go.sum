@@ -11,6 +11,8 @@ github.com/guregu/null v4.0.0+incompatible h1:4zw0ckM7ECd6FNNddc3Fu4aty9nTlpkkzH
 github.com/guregu/null v4.0.0+incompatible/go.mod h1:ePGpQaN9cw0tj45IR5E5ehMvsFlLlQZAkkOXZurJ3NM=
 github.com/jmatth11/yfusion v0.0.0-20210216060216-1597b5f11a32 h1:MmSGZ3xA/eicDgrTTCwZLqP2kDeWlTAv22VAFuCuNuo=
 github.com/jmatth11/yfusion v0.0.0-20210216060216-1597b5f11a32/go.mod h1:qUrraQtHnsRgjFIL3y1zTncHx+Lk6fWgGKKpOuieUl8=
+github.com/joho/godotenv v1.4.0 h1:3l4+N6zfMWnkbPEXKng2o2/MR5mSwTrBih4ZEkkz1lg=
+github.com/joho/godotenv v1.4.0/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
 github.com/klauspost/compress v1.13.6 h1:P76CopJELS0TiO2mebmnzgWaajssP/EszplttgQxcgc=
 github.com/klauspost/compress v1.13.6/go.mod h1:/3/Vjq9QcHkK5uEr5lBEmyoZ1iFhe47etQ6QUkpK6sk=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=

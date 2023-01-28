@@ -8,6 +8,7 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/guregu/null v4.0.0+incompatible // indirect
 	github.com/jmatth11/yfusion v0.0.0-20210216060216-1597b5f11a32 // indirect
+	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
