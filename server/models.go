@@ -15,7 +15,7 @@ type Business struct {
 type Destination struct {
     gorm.Model
     Location        [3]string        `json: "location"`
-    Restaurants     [10]*Business    `json: "restaurants"`
-    Entertainment   [10]*Business    `json: "entertainment"`
-    Shopping        [10]*Business    `json: "shopping"`
+    Restaurants     [10]Business    `json: "restaurants"`
+    Entertainment   [10]Business    `json: "entertainment"`
+    Shopping        [10]Business    `json: "shopping"`
 }

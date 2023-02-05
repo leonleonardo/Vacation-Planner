@@ -56,7 +56,7 @@ func GetDestination(w http.ResponseWriter, r *http.Request) {
     }
 
     // Creating new slice of size to for the top 10 rated Shopping businesses
-    var ShoppingList [10]*Business
+    var ShoppingList [10]Business
 
     // Looping through results of the search to populate slice of shopping businesses
     for i, b := range shoppingResult.Businesses {
@@ -84,7 +84,7 @@ func GetDestination(w http.ResponseWriter, r *http.Request) {
     }
 
     // Entertainment slice
-    var EntertainmentList [10]*Business
+    var EntertainmentList [10]Business
 
 
     // Entertainment slice population
@@ -112,7 +112,7 @@ func GetDestination(w http.ResponseWriter, r *http.Request) {
     }
 
     // Food slice
-    var RestaurantList [10]*Business
+    var RestaurantList [10]Business
 
     // Food slice populating
     for i, b := range restaurantResult.Businesses {
