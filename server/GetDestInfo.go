@@ -1,4 +1,4 @@
-package routes
+package main
 
 import (
     "net/http"
@@ -9,10 +9,9 @@ import (
     "fmt"
     "os"
     "github.com/joho/godotenv"
-    //"gorm.io/gorm"
 )
 
-func getDestInfo(w http.ResponseWriter, r *http.Request) {
+func GetDestInfo(w http.ResponseWriter, r *http.Request) {
 
     w.Header().Set("Content-Type", "application/json")
 
