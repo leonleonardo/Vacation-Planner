@@ -4,11 +4,11 @@ import (
     "net/http"
     "log"
     "github.com/gorilla/mux"
-    "encoding/json"
-    "github.com/jmatth11/yfusion"
-    "fmt"
-    "os"
-    "github.com/joho/godotenv"
+    //"encoding/json"
+    //"github.com/jmatth11/yfusion"
+    //"fmt"
+    //"os"
+    //"github.com/joho/godotenv"
     //"gorm.io/gorm"
 )
 
@@ -18,154 +18,154 @@ func YourHandler(w http.ResponseWriter, r *http.Request) {
 
 // Get Destination Handler function which takes in a location given from the user and returns a Destination object
 // Parameters for returned Destination object in "models.go"
-func GetDestination(w http.ResponseWriter, r *http.Request) {
+// func GetDestination(w http.ResponseWriter, r *http.Request) {
 
-    w.Header().Set("Content-Type", "application/json")
+//     w.Header().Set("Content-Type", "application/json")
 
-    // Using godotenv to hide API keys
-    err := godotenv.Load()
-    if err != nil {
-        log.Fatal("Could not load .env file")
-    }
+//     // Using godotenv to hide API keys
+//     err := godotenv.Load()
+//     if err != nil {
+//         log.Fatal("Could not load .env file")
+//     }
 
-    // Setting key var to YELP
-    yelpAPIKey := os.Getenv("YELP_REST_API_KEY")
-    // secretKey := os.Getenv("YELP_REST_SECRET_KEY")
+//     // Setting key var to YELP
+//     yelpAPIKey := os.Getenv("YELP_REST_API_KEY")
+//     // secretKey := os.Getenv("YELP_REST_SECRET_KEY")
 
-    // Connecting to database
-    // db := connect()
-    // defer db.Close()
+//     // Connecting to database
+//     // db := connect()
+//     // defer db.Close()
 
-    // Taking the location value typed by the user, to use for computations
-    params := mux.Vars(r)
-    destinationLocation := params["location"]
+//     // Taking the location value typed by the user, to use for computations
+//     params := mux.Vars(r)
+//     destinationLocation := params["location"]
 
-    // Starting new Yelp client
-    yelp := yfusion.NewYelpFusion(yelpAPIKey)
+//     // Starting new Yelp client
+//     yelp := yfusion.NewYelpFusion(yelpAPIKey)
 
-    // Setting all relevant filters for specific search
-    businessSearch := &yfusion.BusinessSearchParams{}
-    businessSearch.SetLocation(destinationLocation)
-    businessSearch.SetTerm("fashion")
-    businessSearch.SetLimit(10)
-    businessSearch.SetRadius(15000)
-    businessSearch.SetSortBy("rating")
-    shoppingResult, err := yelp.SearchBusiness(businessSearch)
-    if err != nil {
-        fmt.Println("Fashion clothing business search could not be completed.")
-    }
+//     // Setting all relevant filters for specific search
+//     businessSearch := &yfusion.BusinessSearchParams{}
+//     businessSearch.SetLocation(destinationLocation)
+//     businessSearch.SetTerm("fashion")
+//     businessSearch.SetLimit(10)
+//     businessSearch.SetRadius(15000)
+//     businessSearch.SetSortBy("rating")
+//     shoppingResult, err := yelp.SearchBusiness(businessSearch)
+//     if err != nil {
+//         fmt.Println("Fashion clothing business search could not be completed.")
+//     }
 
-    // Creating new slice of size to for the top 10 rated Shopping businesses
-    var ShoppingList [10]Business
+//     // Creating new slice of size to for the top 10 rated Shopping businesses
+//     var ShoppingList [10]Business
 
-    // Looping through results of the search to populate slice of shopping businesses
-    for i, b := range shoppingResult.Businesses {
-        ShoppingList[i].Name = b.Name
-        ShoppingList[i].Price = b.Price
-        ShoppingList[i].Rating = b.Rating
-        ShoppingList[i].Location = b.Location.Address1
-        ShoppingList[i].Type = b.Categories[0].Title
+//     // Looping through results of the search to populate slice of shopping businesses
+//     for i, b := range shoppingResult.Businesses {
+//         ShoppingList[i].Name = b.Name
+//         ShoppingList[i].Price = b.Price
+//         ShoppingList[i].Rating = b.Rating
+//         ShoppingList[i].Location = b.Location.Address1
+//         ShoppingList[i].Type = b.Categories[0].Title
 
-        // Filling price string with not listed rather than empty string
-        if (len(ShoppingList[i].Price) < 1) {
-            ShoppingList[i].Price = "Not listed"
-        }
-    }
+//         // Filling price string with not listed rather than empty string
+//         if (len(ShoppingList[i].Price) < 1) {
+//             ShoppingList[i].Price = "Not listed"
+//         }
+//     }
 
-    // Entertainment search
-    businessSearch.SetLocation(destinationLocation)
-    businessSearch.SetTerm("arts")
-    businessSearch.SetLimit(10)
-    businessSearch.SetRadius(15000)
-    businessSearch.SetSortBy("rating")
-    entertainmentResult, err := yelp.SearchBusiness(businessSearch)
-    if err != nil {
-        fmt.Println("X")
-    }
+//     // Entertainment search
+//     businessSearch.SetLocation(destinationLocation)
+//     businessSearch.SetTerm("arts")
+//     businessSearch.SetLimit(10)
+//     businessSearch.SetRadius(15000)
+//     businessSearch.SetSortBy("rating")
+//     entertainmentResult, err := yelp.SearchBusiness(businessSearch)
+//     if err != nil {
+//         fmt.Println("X")
+//     }
 
-    // Entertainment slice
-    var EntertainmentList [10]Business
+//     // Entertainment slice
+//     var EntertainmentList [10]Business
 
 
-    // Entertainment slice population
-    for i, b := range entertainmentResult.Businesses {
-        EntertainmentList[i].Name = b.Name
-        EntertainmentList[i].Price = b.Price
-        EntertainmentList[i].Rating = b.Rating
-        EntertainmentList[i].Location = b.Location.Address1
-        EntertainmentList[i].Type = b.Categories[0].Title
+//     // Entertainment slice population
+//     for i, b := range entertainmentResult.Businesses {
+//         EntertainmentList[i].Name = b.Name
+//         EntertainmentList[i].Price = b.Price
+//         EntertainmentList[i].Rating = b.Rating
+//         EntertainmentList[i].Location = b.Location.Address1
+//         EntertainmentList[i].Type = b.Categories[0].Title
 
-        if (len(EntertainmentList[i].Price) < 1) {
-            EntertainmentList[i].Price = "Not listed"
-        }
-    }
+//         if (len(EntertainmentList[i].Price) < 1) {
+//             EntertainmentList[i].Price = "Not listed"
+//         }
+//     }
 
-    // Food search
-    businessSearch.SetLocation(destinationLocation)
-    businessSearch.SetTerm("food")
-    businessSearch.SetLimit(10)
-    businessSearch.SetRadius(15000)
-    businessSearch.SetSortBy("rating")
-    restaurantResult, err := yelp.SearchBusiness(businessSearch)
-    if err != nil {
-        fmt.Println("X")
-    }
+//     // Food search
+//     businessSearch.SetLocation(destinationLocation)
+//     businessSearch.SetTerm("food")
+//     businessSearch.SetLimit(10)
+//     businessSearch.SetRadius(15000)
+//     businessSearch.SetSortBy("rating")
+//     restaurantResult, err := yelp.SearchBusiness(businessSearch)
+//     if err != nil {
+//         fmt.Println("X")
+//     }
 
-    // Food slice
-    var RestaurantList [10]Business
+//     // Food slice
+//     var RestaurantList [10]Business
 
-    // Food slice populating
-    for i, b := range restaurantResult.Businesses {
-        RestaurantList[i].Name = b.Name
-        RestaurantList[i].Price = b.Price
-        RestaurantList[i].Rating = b.Rating
-        RestaurantList[i].Location = b.Location.Address1
-        RestaurantList[i].Type = b.Categories[0].Title
+//     // Food slice populating
+//     for i, b := range restaurantResult.Businesses {
+//         RestaurantList[i].Name = b.Name
+//         RestaurantList[i].Price = b.Price
+//         RestaurantList[i].Rating = b.Rating
+//         RestaurantList[i].Location = b.Location.Address1
+//         RestaurantList[i].Type = b.Categories[0].Title
 
-        if (len(RestaurantList[i].Price) < 1) {
-            RestaurantList[i].Price = "Not listed"
-        }
-    }
+//         if (len(RestaurantList[i].Price) < 1) {
+//             RestaurantList[i].Price = "Not listed"
+//         }
+//     }
 
-    // Creating variables to calculate formal city, state, country for the response
-    // Using the top rated business with the shortest distance from the designated location
-    // To determine city, state and country
-    var shortestDistance float64
-    var city string
-    var state string
-    var country string
+//     // Creating variables to calculate formal city, state, country for the response
+//     // Using the top rated business with the shortest distance from the designated location
+//     // To determine city, state and country
+//     var shortestDistance float64
+//     var city string
+//     var state string
+//     var country string
 
-    for index := 0; index < len(restaurantResult.Businesses); index++ {
-        if index == 0 {
-            shortestDistance = restaurantResult.Businesses[index].Distance
-            city = restaurantResult.Businesses[index].Location.City
-            state = restaurantResult.Businesses[index].Location.State
-            country = restaurantResult.Businesses[index].Location.Country
-        } else {
-            if shortestDistance >= restaurantResult.Businesses[index].Distance {
-                shortestDistance = restaurantResult.Businesses[index].Distance
-                city = restaurantResult.Businesses[index].Location.City
-                state = restaurantResult.Businesses[index].Location.State
-                country = restaurantResult.Businesses[index].Location.Country
-            }
-        }
-    }
+//     for index := 0; index < len(restaurantResult.Businesses); index++ {
+//         if index == 0 {
+//             shortestDistance = restaurantResult.Businesses[index].Distance
+//             city = restaurantResult.Businesses[index].Location.City
+//             state = restaurantResult.Businesses[index].Location.State
+//             country = restaurantResult.Businesses[index].Location.Country
+//         } else {
+//             if shortestDistance >= restaurantResult.Businesses[index].Distance {
+//                 shortestDistance = restaurantResult.Businesses[index].Distance
+//                 city = restaurantResult.Businesses[index].Location.City
+//                 state = restaurantResult.Businesses[index].Location.State
+//                 country = restaurantResult.Businesses[index].Location.Country
+//             }
+//         }
+//     }
 
-    // Creating destination object of which we will return
-    destination := &Destination{
-        Location: [3]string{city, state, country},
-        Restaurants: RestaurantList,
-        Entertainment: EntertainmentList,
-        Shopping: ShoppingList,
-    }
+//     // Creating destination object of which we will return
+//     destination := &Destination{
+//         Location: [3]string{city, state, country},
+//         Restaurants: RestaurantList,
+//         Entertainment: EntertainmentList,
+//         Shopping: ShoppingList,
+//     }
 
-    // // Decoding request
-    // _ = json.NewDecoder(r.Body).Decode(&destination)
+//     // // Decoding request
+//     // _ = json.NewDecoder(r.Body).Decode(&destination)
 
-    // Returning destination object
-    json.NewEncoder(w).Encode(destination)
+//     // Returning destination object
+//     json.NewEncoder(w).Encode(destination)
 
-}
+// }
 
 func main() {
 
@@ -174,7 +174,7 @@ func main() {
     r.HandleFunc("/", YourHandler)
 
     // New function handler for "GET" requests
-    r.HandleFunc("/newDestination/{location}", GetDestination)
+    r.HandleFunc("/newDestination/{location}", routes.getDestInfo).Methods("GET")
 
     // Bind to a port and pass our router in
     log.Fatal(http.ListenAndServe(":8080", r))
