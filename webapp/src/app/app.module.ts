@@ -7,23 +7,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule} from './material/material.module';
 
 import { AppComponent } from './app.component';
-import { DestinationList } from './components/destination-list';
-import { DestinationAdd } from './components/destination-add';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DestinationAdd,
-    DestinationList 
+    HomeComponent,
+    LoginComponent,
+    NavbarComponent 
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
