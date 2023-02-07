@@ -1,20 +1,29 @@
 package main
 
 import (
-    "net/http"
-    "log"
-    "github.com/gorilla/mux"
+	"log"
+	"net/http"
+	"vacation-planner/database"
+
+	"github.com/gorilla/mux"
 )
 
 func YourHandler(w http.ResponseWriter, r *http.Request) {
-    w.Write([]byte("Gorilla!\n"))
+	//test database connection for default route
+	//prints "error" on error, prints "successful connection" on success
+	database.Connect()
+	w.Write([]byte("Gorilla!\n"))
 }
 
 func main() {
-    r := mux.NewRouter()
-    // Routes consist of a path and a handler function.
-    r.HandleFunc("/", YourHandler)
+	//db := database.Connect()
+	//h := routes.NewConnection(db)
 
-    // Bind to a port and pass our router in
-    log.Fatal(http.ListenAndServe(":8080", r))
+	r := mux.NewRouter()
+
+	// Routes consist of a path and a handler function.
+	r.HandleFunc("/", YourHandler)
+
+	// Bind to a port and pass our router in
+	log.Fatal(http.ListenAndServe(":8080", r))
 }
