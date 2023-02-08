@@ -1,11 +1,10 @@
 import {Component} from '@angular/core';
 
-/**
- * @title Basic grid-list
- */
+
 @Component({
   selector: 'app-login',
-  styleUrls: ['login.component.css'],
-  templateUrl: 'login.component.html',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
+  
 })
 export class LoginComponent {}
