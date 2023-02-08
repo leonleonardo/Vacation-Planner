@@ -1,13 +1,14 @@
-<mat-toolbar color="primary">
-    <span> routerLink= "/">Vacation Planner</span>
-    <div class="spacer"></div>
-<!-- <fa-icon [icon]="faUser"></fa-icon>  -->
-    <mat-form-field>
-        <input type="text" matInput placeholder="Search">
-    </mat-form-field>
-    <div class="spacer"></div>
-    <a mat-button>Destinations</a>
-    <a routerLink="/login" mat-button>Log in</a>
-
-</mat-toolbar>
-   
+<div class="navbar-container">
+    <mat-toolbar color="primary">
+        <div class="navbar-title">
+            <span mat-button routerLink= "/" routerLinkActive="bg-image" 
+            [routerLinkActiveOptions]="{exact:true}">Vacation Planner</span>
+        </div>
+        <div class="navbar-centered">
+        </div>
+        <div class="navbar-right">
+            <a mat-button routerLink="/trips" routerLinkActive="mat-accent">Trips</a>
+            <a mat-button routerLink="/login" routerLinkActive="mat-accent">Log in</a>
+        </div>
+    </mat-toolbar>
+</div>  
