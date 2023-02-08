@@ -1,0 +1,23 @@
+.login-page {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+
+.login-card {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.user_email-container mat-form-field + mat-form-field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

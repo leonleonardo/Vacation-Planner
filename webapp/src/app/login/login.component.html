@@ -1,0 +1,26 @@
+<div class="login-page">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="me@example.com" required>
+            <!-- <input matInput placeholder="me@example.com" [formControl]="email" required> -->
+            <!-- <mat-error *ngIf="email.invalid"{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input matInput placeholder="********" required>
+            <!-- <input matInput placeholder="me@example.com" [formControl]="email" required> -->
+            <!-- <mat-error *ngIf="email.invalid"{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+
+        <div class="login-button">
+            <a mat-raised-button color="primary" routerLink=".">Sign up</a>
+            <a mat-raised-button color="primary" routerLink=".">Log in</a>
+        </div>       
+        
+    </mat-card>
+</div>

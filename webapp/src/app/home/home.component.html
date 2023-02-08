@@ -1,0 +1,32 @@
+<div class="bg-img">
+    <div class="navbar-container">
+        <mat-toolbar color="transparent">
+            <div class="navbar-title">
+                <span mat-button routerLink= "/">Vacation Planner</span>
+            </div>
+            <div class="navbar-centered">
+            </div>
+            <div class="navbar-right">
+                <a mat-button routerLink="/trips" routerLinkActive="mat-accent">Trips</a>
+                <a mat-button routerLink="/login" routerLinkActive="mat-accent">Log in</a>
+            </div>
+        </mat-toolbar>
+    </div>
+    <div class="home-search-container">
+        <mat-card class=home-search-card>
+            <mat-card-title>
+                Start Planning
+            </mat-card-title>
+            <mat-card-content class="home-search-content">
+                <mat-form-field appearance="fill">
+                    <mat-label>Destination</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <date-range-picker></date-range-picker>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div>
+
+</div>
