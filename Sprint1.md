@@ -6,6 +6,7 @@
 - As a user, I want to be able to delete desinations I am no longer interested in so that I can have a concise list.
 
 
+
 **Issues we planned to address:**
 
 Frontend:
@@ -21,7 +22,9 @@ Backend:
 - Use Yelp API to get destination information
 - store a list of saved destinations
 
-**Issues successfully completed:****
+
+
+**Issues successfully completed:**
 
 Frontend:
 - created a homepage and navigation
@@ -32,6 +35,7 @@ Backend:
 - set up connection with database
 - database stores user login information
 - searching for destination information with Yelp API
+
 
 
 **Issues not sucessfully completed and why:**
@@ -45,7 +49,9 @@ Backend:
 - storing a list of saved destinations (didn't get to this yet)
 
 
+
 **Demo videos:**
+
 Frontend:
 
 Backend:
