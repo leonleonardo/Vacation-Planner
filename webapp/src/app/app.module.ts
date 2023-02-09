@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { DateRangePickerComponent } from './components/date-range-picker';
 
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 import { TripsComponent } from './trips/trips.component';
 import { TripsCardComponent } from './trips/card.component';
@@ -33,6 +34,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HomeComponent,
     DateRangePickerComponent,
     LoginComponent,
+    SignupComponent,
     TripsComponent,
     TripsCardComponent,
     TripsCardDeckComponent
