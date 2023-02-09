@@ -10,49 +10,49 @@
 **Issues we planned to address:**
 
 Frontend:
-- display main search page 
-- display destination information after search
-- create a login and account creation page
-- create page to show list of saved destinations
+- Display main search page 
+- Display destination information after search
+- Create a login and account creation page
+- Create page to show list of saved destinations
 
 Backend:
 - Establish a connection with a database 
-- allow user info to be put into database
+- Allow user info to be put into database
 - Authenticate users who are logging in
 - Use Yelp API to get destination information
-- store a list of saved destinations
+- Store a list of saved destinations
 
 
 
 **Issues successfully completed:**
 
 Frontend:
-- created a homepage and navigation
-- created a user login page
-- created a saved destination list page
+- Created a homepage and navigation
+- Created a user login page
+- Created a saved destination list page
 
 Backend:
-- set up connection with database
-- database stores user login information
-- searching for destination information with Yelp API
+- Set up connection with database
+- Satabase stores user login information
+- Searching for destination information with Yelp API
 
 
 
 **Issues not sucessfully completed and why:**
 
 Frontend:
-- display information after search (requires coordination with backend to display the yelp API information)
-- display saved destination list missing add and remove button and ability to dynamically change the list depending on user (didn't get to this yet)
+- Display information after search (requires coordination with backend to display the yelp API information)
+- Display saved destination list (Started, but not finished yet)
 
 Backend:
-- password authentication (implemented storing user login last, didn't get to authentication yet)
-- storing a list of saved destinations (didn't get to this yet)
+- Password authentication (implemented storing user login last, didn't get to authentication yet)
+- Storing a list of saved destinations (didn't get to this yet)
 
 
 
 **Demo videos:**
 
-Frontend:
+Frontend: https://drive.google.com/file/d/1MYAXxDdiKz1nYkW_ueOTbBE77HfpNLkq/view?usp=sharing
 
 Backend:
 https://drive.google.com/file/d/1GNgY7QQatZYrpBsG3o0RaXLF8aQGOsU6/view?usp=sharing
