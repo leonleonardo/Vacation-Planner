@@ -1,9 +1,9 @@
 <div class="bg-img">
-    <div class="login-card-container">
-        <mat-card class="login-card">
+    <div class="signup-card-container">
+        <mat-card class="signup-card">
 
 
-            <mat-card-title>Login</mat-card-title>
+            <mat-card-title>Sign Up</mat-card-title>
 
 
             <mat-form-field>
@@ -20,9 +20,15 @@
                 <!-- <mat-error *ngIf="email.invalid"{{getErrorMessage()}}</mat-error> -->
             </mat-form-field>
 
-            <div class="login-button">
-                <a mat-raised-button color="primary" routerLink="/signup">Sign up</a>
-                <a mat-raised-button color="primary" routerLink=".">Log in</a>
+            <mat-form-field>
+                <mat-label>Confirm your password</mat-label>
+                <input matInput placeholder="********" required>
+                <!-- <input matInput placeholder="me@example.com" [formControl]="email" required> -->
+                <!-- <mat-error *ngIf="email.invalid"{{getErrorMessage()}}</mat-error> -->
+            </mat-form-field>
+
+            <div class="signup-button">
+                <a mat-raised-button color="primary">Create Account</a>
             </div>
 
         </mat-card>

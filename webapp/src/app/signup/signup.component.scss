@@ -1,10 +1,5 @@
-.login-button button,
-.login-button a {
-    margin-right: 8px;
-}
-
 .bg-img {
-    animation: fadeIn .5s;
+    animation: fadeIn 0s;
     display: flex;
     background-image: url("../../assets/images/beach_bg.jpg");
     width: 100vw;
@@ -19,7 +14,7 @@
     100% {opacity: 1;}
 }
 
-.login-card-container {
+.signup-card-container {
     animation: fadeIn 2s;
     display: flex;
     position: absolute;
@@ -30,7 +25,7 @@
     height: 100vh;
 }
 
-.login-card {
+.signup-card {
     text-align: center;
     justify-content: center;
     display: flex;
