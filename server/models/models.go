@@ -21,9 +21,14 @@ type Destination struct {
 	ImageLink		string			`json: "imagelink"`
 }
 
+type SavedLocation struct {
+    Email       string  `json: "email"`
+    Location    string  `json: "location"`
+}
+
 // introducing user type for database
 type User struct {
-	gorm.Model
-	Email 		string `json: "email" 		gorm: "primaryKey"`
-	Password 	string `json: "password"`
+    gorm.Model
+    Email           string      `json: "email"          gorm: "primaryKey"`
+    Password        string      `json: "password"`
 }

@@ -20,7 +20,7 @@ func Connect() *gorm.DB {
 	}
 
 	//test migrating User struct
-	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.User{}, &models.SavedLocation{})
 
 	fmt.Println("successful connection")
 
