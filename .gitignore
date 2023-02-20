@@ -93,10 +93,7 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
-<<<<<<< HEAD
 # ENV file including Yelp API key
-=======
->>>>>>> feature/store_user_login
 .env
 
 # End of https://www.toptal.com/developers/gitignore/api/angular,go,macos
