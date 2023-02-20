@@ -18,7 +18,7 @@ func main() {
 	r := mux.NewRouter()
 
 	// Created test POST request for database
-	r.HandleFunc("/CreateUser/{username}", h.CreateUser).Methods("POST")
+	r.HandleFunc("/CreateUser", h.CreateUser).Methods("POST")
 
 	r.HandleFunc("/newDestination/{location}", h.GetDestInfo).Methods("GET")
 

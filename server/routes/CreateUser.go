@@ -5,43 +5,60 @@ import (
 	"fmt"
 	"net/http"
 	"vacation-planner/models"
-	"github.com/gorilla/mux"
 )
 
-// Create user POST using mock data & parameter from the request
+// Create user POST, using HTTP request body information for email and password
 func (h DBRouter) CreateUser(w http.ResponseWriter, r *http.Request) {
 
+	// Only POST is allowed for this route
 	if r.Method != "POST" {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	  }
 
-	w.Header().Set("Content-Type", "application/json")
-	params := mux.Vars(r)
-	// Changed this to not create a mock user until we have checked
-	// the DB for any users with the given username
+	// Creating two new variables to use as reference
+	var requestBody map[string]interface{}
 	var user models.User
 
-	// Added a line to check the database for any users with the same username
-	// as the new account
-	result := h.DB.First(&models.User{}, "Username = ?", params["username"])
+	// Decoding body of the http request for the information for the user account
+	err := json.NewDecoder(r.Body).Decode(&requestBody)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
 
-	// Checking if the rows that have the username is 0 therefore nobody has the username
-	// still using mock information until figuring out how to work with http request BODY(?)
-	if result.RowsAffected == 0 {
-		user.Firstname = "Top"
-		user.Lastname = "G"
-		user.Username = params["username"]
-		user.Password = "blackPowerRanger"
+	// Added a line to check the database for any users with the same email as the new account
 	
-		// Creating new user and checking for error
+	result := h.DB.First(&models.User{}, "Email = ?", requestBody["Email"].(string))
+
+	// Checking if the rows that have the email is 0 therefore nobody has the email
+	if result.RowsAffected == 0 {
+		// Assigning Email and Password to new User
+		user.Email = requestBody["Email"].(string)
+		user.Password = requestBody["Password"].(string)
+	
+		// Creating new user in the DB and checking for error
 		if newUser := h.DB.Create(&user); newUser.Error != nil {
 			fmt.Println(newUser.Error)
 		}
 
-		json.NewEncoder(w).Encode(user)
+		// Setting headers
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		
+		// Not generating accurate response data(?), looking to meet to come to concensus on how exactly
+		// we plan on passing information back and forth
+		//
+		// Essentially I would be encoding some sort of response with 
+		// "json.NewEncoder(w).Encode(response)"
+		//
+		// For now, I'm just printing validation strings.
+
+		w.Write([]byte("New user successfully created."))
 
 	} else {
-		w.Write([]byte("Username taken!"))
+		// If Rows Affected (rows with email given) is greater than 0, therefore someone has an account with
+		// the email given, we don't create a new user and tell them their email is taken.
+		w.Write([]byte("Email taken!"))
 	}
 }
