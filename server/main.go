@@ -18,9 +18,11 @@ func main() {
 	r := mux.NewRouter()
 
 	// Created test POST request for database
-	r.HandleFunc("/CreateUser", h.CreateUser).Methods("POST")
+	r.HandleFunc("/createUser", h.CreateUser).Methods("POST")
 
 	r.HandleFunc("/newDestination/{location}", h.GetDestInfo).Methods("GET")
+
+	r.HandleFunc("/loginUser", h.LoginUser).Methods("GET")
 
 	// Bind to a port and pass our router in
 	log.Fatal(http.ListenAndServe(":8080", r))
