@@ -145,12 +145,17 @@ func (h DBRouter) GetDestInfo(w http.ResponseWriter, r *http.Request) {
         }
     }
 
+    // IMAGE LOADING API GOES HERE, ADDING IMAGE LINK AS STRING TO DESTINATION OBJECT BEFORE RETURNING
+    var link string
+
+
     // Creating destination object of which we will return
     destination := &models.Destination{
         Location: [3]string{city, state, country},
         Restaurants: RestaurantList,
         Entertainment: EntertainmentList,
         Shopping: ShoppingList,
+        ImageLink: link,
     }
 
     // // Decoding request

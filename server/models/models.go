@@ -18,6 +18,7 @@ type Destination struct {
     Restaurants     [10]Business    `json: "restaurants"`
     Entertainment   [10]Business    `json: "entertainment"`
     Shopping        [10]Business    `json: "shopping"`
+	ImageLink		string			`json: "imagelink"`
 }
 
 // introducing user type for database
