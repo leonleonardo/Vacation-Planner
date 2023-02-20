@@ -17,13 +17,16 @@ func main() {
 
 	r := mux.NewRouter()
 
-	// Created test POST request for database
+	// Created POST request for creating a user in the database
 	r.HandleFunc("/createUser", h.CreateUser).Methods("POST")
 
+	// Created GET request to get relevant travel information for the user
 	r.HandleFunc("/newDestination/{location}", h.GetDestInfo).Methods("GET")
 
+	// Created another GET to "get" a users password and ensure the password given matches our records
 	r.HandleFunc("/loginUser", h.LoginUser).Methods("GET")
 
+	// Created a PUT request to put locations into the savedLocation table for users to have their own Destination Lists
 	r.HandleFunc("/addDestination", h.AddDestination).Methods("PUT")
 
 	// Bind to a port and pass our router in
