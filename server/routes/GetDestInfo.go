@@ -1,4 +1,4 @@
-package main
+package routes
 
 import (
     "net/http"
@@ -9,9 +9,10 @@ import (
     "fmt"
     "os"
     "github.com/joho/godotenv"
+    "vacation-planner/models"
 )
 
-func GetDestInfo(w http.ResponseWriter, r *http.Request) {
+func (h DBRouter) GetDestInfo(w http.ResponseWriter, r *http.Request) {
 
     w.Header().Set("Content-Type", "application/json")
 
@@ -49,7 +50,7 @@ func GetDestInfo(w http.ResponseWriter, r *http.Request) {
     }
 
     // Creating new slice of size to for the top 10 rated Shopping businesses
-    var ShoppingList [10]Business
+    var ShoppingList [10]models.Business
 
     // Looping through results of the search to populate slice of shopping businesses
     for i, b := range shoppingResult.Businesses {
@@ -77,7 +78,7 @@ func GetDestInfo(w http.ResponseWriter, r *http.Request) {
     }
 
     // Entertainment slice
-    var EntertainmentList [10]Business
+    var EntertainmentList [10]models.Business
 
 
     // Entertainment slice population
@@ -105,7 +106,7 @@ func GetDestInfo(w http.ResponseWriter, r *http.Request) {
     }
 
     // Food slice
-    var RestaurantList [10]Business
+    var RestaurantList [10]models.Business
 
     // Food slice populating
     for i, b := range restaurantResult.Businesses {
@@ -145,7 +146,7 @@ func GetDestInfo(w http.ResponseWriter, r *http.Request) {
     }
 
     // Creating destination object of which we will return
-    destination := &Destination{
+    destination := &models.Destination{
         Location: [3]string{city, state, country},
         Restaurants: RestaurantList,
         Entertainment: EntertainmentList,
