@@ -26,8 +26,10 @@ func main() {
 	// Created another GET to "get" a users password and ensure the password given matches our records
 	r.HandleFunc("/loginUser", h.LoginUser).Methods("GET")
 
-	// Created a PUT request to put locations into the savedLocation table for users to have their own Destination Lists
-	r.HandleFunc("/addDestination", h.AddDestination).Methods("PUT")
+	// Created a new route that can take 3 HTTP method requests to update locations in the savedLocation table for users to have their own Destination Lists
+	r.HandleFunc("/updateDestination", h.UpdateDestination).Methods("PUT")
+	r.HandleFunc("/updateDestination", h.UpdateDestination).Methods("DELETE")
+	r.HandleFunc("/updateDestination", h.UpdateDestination).Methods("GET")
 
 	// Bind to a port and pass our router in
 	log.Fatal(http.ListenAndServe(":8080", r))
