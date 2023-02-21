@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"vacation-planner/models"
-
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
