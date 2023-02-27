@@ -6,6 +6,7 @@ import (
 	"vacation-planner/database"
 	"vacation-planner/routes"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/handlers"
 )
 
 func main() {
@@ -31,6 +32,9 @@ func main() {
 	r.HandleFunc("/updateDestination", h.UpdateDestination).Methods("DELETE")
 	r.HandleFunc("/updateDestination", h.UpdateDestination).Methods("GET")
 
-	// Bind to a port and pass our router in
-	log.Fatal(http.ListenAndServe(":8080", r))
+	// Enabling CORS, binding to a port and passing our router in
+	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
+    methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
+    origins := handlers.AllowedOrigins([]string{"http://localhost:4200"})
+    log.Fatal(http.ListenAndServe(":8080", handlers.CORS(headers, methods, origins)(r)))
 }
