@@ -19,9 +19,14 @@ type Destination struct {
     Shopping        [10]Business    `json: "shopping"`
 }
 
+type SavedLocation struct {
+    Email       string  `json: "email"`
+    Location    string  `json: "location"`
+}
+
 // introducing user type for database
 type User struct {
-	gorm.Model
-	Email 		string `json: "email" 		gorm: "primaryKey"`
-	Password 	string `json: "password"`
+    gorm.Model
+    Email           string      `json: "email"          gorm: "primaryKey"`
+    Password        string      `json: "password"`
 }
