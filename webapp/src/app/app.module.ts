@@ -21,6 +21,8 @@ import { TripsComponent } from './trips/trips.component';
 import { TripsCardComponent } from './trips/card.component';
 import { TripsCardDeckComponent } from './trips/deck.component';
 
+import { MessageService } from './message.service';
+
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -50,7 +52,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
