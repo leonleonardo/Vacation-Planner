@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-component',
@@ -11,8 +12,8 @@ export class LoginComponent {
   email!: string;
   password!: string;
 
-  // Injecting HttpClient for http requests
-  constructor(private http: HttpClient) {}
+  // Injecting HttpClient for http requests and Router for dynamic routing
+  constructor(private http: HttpClient, private router: Router) {}
 
   // Initializing function to be called on "sign in" button click
   loginUser() {
@@ -30,7 +31,17 @@ export class LoginComponent {
     this.http.post("http://localhost:8181/loginUser", params, httpOptions)
     .subscribe(response => {
         // Print request response to JS console
-        console.log(response);
+        console.log(response)
+        // Unpacking JSON response so we can refer to it's values
+        const jsonData = JSON.parse(JSON.stringify(response));
+        // If logged in, go to main page
+        if (jsonData.LoggedIn) {
+          this.router.navigate(['']);
+        }
+        // If not logged in, say at login page
+        else {
+          this.router.navigate(['/login']);
+        }
     });
   }
 }
