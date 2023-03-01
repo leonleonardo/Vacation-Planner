@@ -1,17 +1,22 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"vacation-planner/database"
 	"vacation-planner/routes"
-	"github.com/gorilla/mux"
+
 	"github.com/gorilla/handlers"
+	"github.com/gorilla/mux"
 )
 
 func main() {
 	// Establishing database connection
-	db := database.Connect()
+	db, err := database.Connect()
+	if err != nil {
+		fmt.Println("Error: could not connect to database")
+	}
 
 	// Packaging database connection to be passed to handlers
 	h := routes.NewConnection(db)
@@ -34,7 +39,7 @@ func main() {
 
 	// Enabling CORS, binding to a port and passing our router in
 	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
-    methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
-    origins := handlers.AllowedOrigins([]string{"http://localhost:4200"})
-    log.Fatal(http.ListenAndServe(":8080", handlers.CORS(headers, methods, origins)(r)))
+	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
+	origins := handlers.AllowedOrigins([]string{"http://localhost:4200"})
+	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(headers, methods, origins)(r)))
 }
