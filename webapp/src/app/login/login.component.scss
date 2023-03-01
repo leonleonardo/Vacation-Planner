@@ -1,0 +1,46 @@
+.login-button button,
+.login-button a {
+    margin-right: 8px;
+}
+
+.bg-img {
+    animation: fadeIn .5s;
+    display: flex;
+    background-image: url("../../assets/images/beach_bg.jpg");
+    width: 100vw;
+    height: 100vh; 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.login-card-container {
+    animation: fadeIn 2s;
+    display: flex;
+    position: absolute;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-card {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding-top: .5rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    top: -10rem;
+}
+
+
+
+

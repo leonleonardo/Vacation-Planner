@@ -5,25 +5,50 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule} from './material/material.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { DestinationList } from './components/destination-list';
-import { DestinationAdd } from './components/destination-add';
+
+import { NavbarComponent } from './navbar/navbar.component';
+
+import { HomeComponent } from './home/home.component';
+import { DateRangePickerComponent } from './components/date-range-picker';
+
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+
+import { TripsComponent } from './trips/trips.component';
+import { TripsCardComponent } from './trips/card.component';
+import { TripsCardDeckComponent } from './trips/deck.component';
+
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DestinationAdd,
-    DestinationList 
+    NavbarComponent,
+    HomeComponent,
+    DateRangePickerComponent,
+    LoginComponent,
+    SignupComponent,
+    TripsComponent,
+    TripsCardComponent,
+    TripsCardDeckComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

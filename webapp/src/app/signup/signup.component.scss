@@ -1,0 +1,41 @@
+.bg-img {
+    animation: fadeIn 0s;
+    display: flex;
+    background-image: url("../../assets/images/beach_bg.jpg");
+    width: 100vw;
+    height: 100vh; 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.signup-card-container {
+    animation: fadeIn 2s;
+    display: flex;
+    position: absolute;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.signup-card {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding-top: .5rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    top: -10rem;
+}
+
+
+
+

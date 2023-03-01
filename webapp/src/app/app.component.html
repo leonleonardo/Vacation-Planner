@@ -1,9 +1,14 @@
-
-<div style="text-align:center; padding-top: 1rem">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <destination-add></destination-add>
-  <destination-list></destination-list>
+<!DOCTYPE html>
+<html>
+<!-- First view -->
+<div *ngIf="isRoute('/')">
+</div>
+<!-- Second view activated when the route doesn't contain the home route -->
+<div *ngIf="!isRoute('/')">
+    <app-navbar></app-navbar>
 </div>
 <router-outlet></router-outlet>
+</html>
+
+
+

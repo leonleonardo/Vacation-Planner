@@ -145,7 +145,6 @@ func (h DBRouter) GetDestInfo(w http.ResponseWriter, r *http.Request) {
             }
         }
     }
-
     // Creating destination object of which we will return
     destination := &models.Destination{
         Location: [3]string{city, state, country},
