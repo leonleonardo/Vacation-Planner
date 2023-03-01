@@ -31,6 +31,6 @@ export class LoginComponent {
     .subscribe(response => {
         // Print request response to JS console
         console.log(response);
-  });
-}
+    });
+  }
 }
