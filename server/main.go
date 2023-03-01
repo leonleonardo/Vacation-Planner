@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"vacation-planner/database"
@@ -12,7 +13,10 @@ import (
 
 func main() {
 	// Establishing database connection
-	db := database.Connect()
+	db, err := database.Connect()
+	if err != nil {
+		fmt.Println("Error: could not connect to database")
+	}
 
 	// Packaging database connection to be passed to handlers
 	h := routes.NewConnection(db)
