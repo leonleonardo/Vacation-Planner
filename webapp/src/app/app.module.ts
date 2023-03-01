@@ -5,14 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule} from './material/material.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { HomeComponent } from './home/home.component';
-import { DateRangePickerComponent } from './components/date-range-picker';
+import { TripSearchComponent, DestinationResultDialog } from './components/trip-search.component';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -20,6 +20,8 @@ import { SignupComponent } from './signup/signup.component';
 import { TripsComponent } from './trips/trips.component';
 import { TripsCardComponent } from './trips/card.component';
 import { TripsCardDeckComponent } from './trips/deck.component';
+
+import { MessageService } from './message.service';
 
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -32,7 +34,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    DateRangePickerComponent,
+    TripSearchComponent,
+    DestinationResultDialog,
     LoginComponent,
     SignupComponent,
     TripsComponent,
@@ -50,7 +53,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

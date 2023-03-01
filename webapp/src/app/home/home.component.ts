@@ -1,5 +1,10 @@
 import {Component} from '@angular/core';
 
+import { Trip } from '../trip';
+import { TripsService } from '../trips.service';
+
+import {FormControl} from '@angular/forms';
+
 /**
  * @title Basic grid-list
  */
@@ -8,4 +13,5 @@ import {Component} from '@angular/core';
   styleUrls: ['home.component.scss'],
   templateUrl: 'home.component.html',
 })
-export class HomeComponent {}
+export class HomeComponent {
+}

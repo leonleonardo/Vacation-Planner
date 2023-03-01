@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>{{data.results.Location[0]}}, {{data.results.Location[1]}}  Highlights</h2>
+<div mat-dialog-content>
+    <h3>Restaurants</h3>
+        <ul *ngFor="let item of data.results.Restaurants">
+            <li class="parentNav">{{item.Name}}</li>
+                <ul class="childData">
+                    <ul>
+                        <li>Rating: {{item.Rating}}</li>
+                        <li>Price: {{item.Price}}</li>
+                        <li>Location: {{item.Location}}</li>
+                        <li>Type: {{item.Type}}</li>
+                    </ul>
+                </ul>
+        </ul>
+    <h3>Entertainment</h3>
+        <ul *ngFor="let item of data.results.Entertainment">
+            <li class="parentNav">{{item.Name}}</li>
+                <ul class="childData">
+                    <ul>
+                        <li>Rating: {{item.Rating}}</li>
+                        <li>Price: {{item.Price}}</li>
+                        <li>Location: {{item.Location}}</li>
+                        <li>Type: {{item.Type}}</li>
+                    </ul>
+                </ul>
+        </ul>
+    <h3>Shopping</h3>
+        <ul *ngFor="let item of data.results.Shopping">
+            <li class="parentNav">{{item.Name}}</li>
+                <ul class="childData">
+                    <ul>
+                        <li>Rating: {{item.Rating}}</li>
+                        <li>Price: {{item.Price}}</li>
+                        <li>Location: {{item.Location}}</li>
+                        <li>Type: {{item.Type}}</li>
+                    </ul>
+                </ul>
+        </ul>
+</div>
