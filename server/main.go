@@ -25,8 +25,8 @@ func main() {
 	// Created GET request to get relevant travel information for the user
 	r.HandleFunc("/newDestination/{location}", h.GetDestInfo).Methods("GET")
 
-	// Created another GET to "get" a users password and ensure the password given matches our records
-	r.HandleFunc("/loginUser", h.LoginUser).Methods("GET")
+	// Created a POST to login a user while using username and password. Post ensures the info is not on the URL
+	r.HandleFunc("/loginUser", h.LoginUser).Methods("POST")
 
 	// Created a new route that can take 3 HTTP method requests to update locations in the savedLocation table for users to have their own Destination Lists
 	r.HandleFunc("/updateDestination", h.UpdateDestination).Methods("PUT")
