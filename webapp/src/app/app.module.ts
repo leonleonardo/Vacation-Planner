@@ -5,14 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule} from './material/material.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { HomeComponent } from './home/home.component';
-import { DateRangePickerComponent } from './components/date-range-picker';
+import { TripSearchComponent } from './components/trip-search.component';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -34,7 +34,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    DateRangePickerComponent,
+    TripSearchComponent,
     LoginComponent,
     SignupComponent,
     TripsComponent,

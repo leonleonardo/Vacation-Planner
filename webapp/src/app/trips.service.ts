@@ -10,7 +10,7 @@ import { MessageService } from './message.service';
 })
 export class TripsService {
 
-  private tripsUrl = 'api/trips';
+  private tripsUrl = 'http://localhost:8181/';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,10 +24,10 @@ export class TripsService {
     return this.http.get<Trip[]>(this.tripsUrl)
   }
 
-  addTrips(trip: Trip): Observable<Trip> {
-    return this.http.post<Trip>(this.tripsUrl, trip, this.httpOptions).pipe(
-      tap((newTrip: Trip) => this.log(`added trip to destination=${newTrip.destination}`))
-    );
+  getTrip(trip: Trip): Observable<any> {
+    console.log(this.tripsUrl.concat("newDestination/", trip.dest) );
+    
+    return this.http.get<any>(this.tripsUrl.concat("newDestination/", trip.dest));
   }
 
   private log(message: string) {

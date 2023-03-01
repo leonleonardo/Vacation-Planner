@@ -1,6 +1,5 @@
 export interface Trip {
-    id: number;
-    destination: string;
+    dest: string;
     start: string;
     end: string;
   }
