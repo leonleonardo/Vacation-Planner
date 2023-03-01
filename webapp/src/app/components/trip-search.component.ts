@@ -1,8 +1,12 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {FormControl, FormGroup,} from '@angular/forms';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { map, catchError, tap } from 'rxjs/operators';
 
 import { Trip } from '../trip';
 import { TripsService } from '../trips.service';
+
+import { Destination } from '../destination';
 
 /** @title Date range picker forms integration */
 @Component({
@@ -18,9 +22,16 @@ export class TripSearchComponent {
     end: new FormControl<string | null>(null),
   });
 
-  constructor(private tripsService: TripsService) {}
+  constructor(private tripsService: TripsService, public dialog: MatDialog) {}
 
-  destInfo = new Array<any>();
+
+  destinationResults: Destination = new Destination();
+
+  openDialog(): void {
+    this.dialog.open(DestinationResultDialog, {
+      data: {results: this.destinationResults},
+    });
+  }
 
   add(): void {
     var dest: string = JSON.stringify(this.tripForm.value.dest!);
@@ -29,15 +40,25 @@ export class TripSearchComponent {
     start = start.substring(1,11);
     end = end.substring(1,11);
     dest = dest.substring(1,dest.length-1);
-    // console.log(start);
-    // console.log(end);
-    // console.log(dest);
     if (!dest) {return;}
-    this.tripsService.getTrip({dest, start, end} as Trip)
+    this.tripsService.getTrip({dest, start, end} as Trip).pipe(
+      map((response) => {
+        this.destinationResults = response;
+      })
+    )
     .subscribe(response => {
-      this.destInfo = response.data;
-      console.log(this.destInfo);
+      this.openDialog();
     });
   }
 
+}
+
+@Component({
+  selector: 'destination-dialog',
+  templateUrl: 'destination-dialog.component.html',
+})
+export class DestinationResultDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+    // console.log('data passed in is:', this.data);
+  }
 }

@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { HomeComponent } from './home/home.component';
-import { TripSearchComponent } from './components/trip-search.component';
+import { TripSearchComponent, DestinationResultDialog } from './components/trip-search.component';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -35,6 +35,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     NavbarComponent,
     HomeComponent,
     TripSearchComponent,
+    DestinationResultDialog,
     LoginComponent,
     SignupComponent,
     TripsComponent,
