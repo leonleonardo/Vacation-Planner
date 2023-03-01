@@ -2,6 +2,7 @@ package tests
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -16,6 +17,12 @@ import (
 func TestUserLogin(t *testing.T) {
 	//test each possible response from the server by inputting info and testing against the expected validation string
 
+	//formatting of the returned JSON body
+	type LoginAttempt struct {
+		LoggedIn bool   `json: "loggedin"`
+		Message  string `json: "message"`
+	}
+
 	//case 1: successful login
 
 	//this email and pass combination is stored in the database
@@ -25,7 +32,7 @@ func TestUserLogin(t *testing.T) {
 	payload := fmt.Sprintf(`{"Email": "%s", "Password": "%s"}`, email, password)
 
 	//making a request to the database
-	req, err := http.NewRequest("GET", "/loginUser", strings.NewReader(payload))
+	req, err := http.NewRequest("POST", "/loginUser", strings.NewReader(payload))
 	if err != nil {
 		t.Errorf("Error: login user request could not be completed")
 	}
@@ -37,7 +44,7 @@ func TestUserLogin(t *testing.T) {
 	h := routes.NewConnection(db)
 
 	r := mux.NewRouter()
-	r.HandleFunc("/loginUser", h.LoginUser).Methods("GET")
+	r.HandleFunc("/loginUser", h.LoginUser).Methods("POST")
 	r.ServeHTTP(rr, req)
 
 	//error handling for wrong http status code
@@ -46,11 +53,12 @@ func TestUserLogin(t *testing.T) {
 	}
 
 	//with this email and password, we expect the user to be logged in
-	expectedOutput := []byte("User successfully logged in.")
+	response := LoginAttempt{LoggedIn: true, Message: "User successfully logged in."}
+	jsonResponse, err := json.Marshal(response)
 
 	//testing if the response matches output
-	if !bytes.Equal(rr.Body.Bytes(), expectedOutput) {
-		t.Errorf("handler returned unexpected response: got %v want %v", rr.Body.String(), expectedOutput)
+	if !bytes.Equal(rr.Body.Bytes(), jsonResponse) {
+		t.Errorf("handler returned unexpected response: got %v want %v", rr.Body.String(), jsonResponse)
 	} else {
 		fmt.Printf("Case 1 passed!!\n")
 	}
@@ -61,14 +69,14 @@ func TestUserLogin(t *testing.T) {
 
 	payload2 := fmt.Sprintf(`{"Email": "%s", "Password": "%s"}`, email2, password2)
 
-	req2, err := http.NewRequest("GET", "/loginUser", strings.NewReader(payload2))
+	req2, err := http.NewRequest("POST", "/loginUser", strings.NewReader(payload2))
 	if err != nil {
 		t.Errorf("Error: login user request could not be completed")
 	}
 
 	rr2 := httptest.NewRecorder()
 	r2 := mux.NewRouter()
-	r2.HandleFunc("/loginUser", h.LoginUser).Methods("GET")
+	r2.HandleFunc("/loginUser", h.LoginUser).Methods("POST")
 	r2.ServeHTTP(rr2, req2)
 
 	if status := rr2.Code; status != http.StatusOK {
@@ -76,11 +84,12 @@ func TestUserLogin(t *testing.T) {
 	}
 
 	//this email is not in the database of users
-	expectedOutput2 := []byte("Email not in use!")
+	response = LoginAttempt{LoggedIn: false, Message: "Email not in use in our userbase."}
+	jsonResponse, err = json.Marshal(response)
 
 	//testing if the response matches output
-	if !bytes.Equal(rr2.Body.Bytes(), expectedOutput2) {
-		t.Errorf("handler returned unexpected response: got %v want %v", rr2.Body.String(), expectedOutput2)
+	if !bytes.Equal(rr2.Body.Bytes(), jsonResponse) {
+		t.Errorf("handler returned unexpected response: got %v want %v", rr2.Body.String(), jsonResponse)
 	} else {
 		fmt.Printf("Case 2 passed!!\n")
 	}
@@ -91,14 +100,14 @@ func TestUserLogin(t *testing.T) {
 
 	payload3 := fmt.Sprintf(`{"Email": "%s", "Password": "%s"}`, email3, password3)
 
-	req3, err := http.NewRequest("GET", "/loginUser", strings.NewReader(payload3))
+	req3, err := http.NewRequest("POST", "/loginUser", strings.NewReader(payload3))
 	if err != nil {
 		t.Errorf("Error: login user request could not be completed")
 	}
 
 	rr3 := httptest.NewRecorder()
 	r3 := mux.NewRouter()
-	r3.HandleFunc("/loginUser", h.LoginUser).Methods("GET")
+	r3.HandleFunc("/loginUser", h.LoginUser).Methods("POST")
 	r3.ServeHTTP(rr3, req3)
 
 	if status := rr3.Code; status != http.StatusOK {
@@ -106,11 +115,12 @@ func TestUserLogin(t *testing.T) {
 	}
 
 	//the password does not match with the user input in the database
-	expectedOutput3 := []byte("Password given does not match password associated with this email!")
+	response = LoginAttempt{LoggedIn: false, Message: "Email and password combination does not exist."}
+	jsonResponse, err = json.Marshal(response)
 
 	//testing to see if expected response matches output
-	if !bytes.Equal(rr3.Body.Bytes(), expectedOutput3) {
-		t.Errorf("handler returned unexpected response: got %v want %v", rr3.Body.String(), expectedOutput3)
+	if !bytes.Equal(rr3.Body.Bytes(), jsonResponse) {
+		t.Errorf("handler returned unexpected response: got %v want %v", rr3.Body.String(), jsonResponse)
 	} else {
 		fmt.Printf("Case 3 passed!!\n")
 	}
