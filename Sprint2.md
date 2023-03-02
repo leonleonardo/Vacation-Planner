@@ -64,7 +64,7 @@ Response:
 - Response is a JSON file in the following format:
 { LoggedIn: true, Message: "User successfully logged in." }
 
-LoggedIn value will register as false if the email is unrecognized or the email and password do not match.
+- LoggedIn value will register as false if the email is unrecognized or the email and password do not match.
 
 ### **GET** /newDestination/{location} - Returns Yelp API information about a specific location
 
