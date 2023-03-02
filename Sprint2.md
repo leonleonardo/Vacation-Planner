@@ -36,24 +36,96 @@ The only additional dependency this API requires for all of it's features to fun
 This API integrates with the Yelp API to provide information to users about shopping, restaurants, and entertainment near a searched destination. Currently, the top 10 most highly rated restaurants, stores, and entertainment locations are returned, displaying their rating along with the average price, address, and the type of establishment (i.e. "French Restaurant").
 
 ## Endpoints:
-### **POST** /createUser
+### **POST** /createUser - Creates a new user account
 
-### **POST** /loginUser
+Parameters:
+- Request body is a JSON file in the following format:
+{
+"Email": "email@example.com",
+"Password" : "password"
+}
 
-### **GET** /newDestination/{location}
-
-### **GET** /updateDestination
-
-### **PUT** /updateDestination
-
-### **DELETE** /updateDestination
-
-- create user: details on what it does, what it needs, what it returns, how to link with it
+Response: 
+- Response is a JSON file in the following format:
+{ Success: true, Message: "User succesfully created account" }
 
 
-put places a desination in a list with a user email associated with it for later searching
-delete takes a location associated with an email out
-get finds all of the locations associated with a particular email and returns them
+
+### **POST** /loginUser - Authenticates a user login
+
+Parameters:
+- Request body is a JSON file in the following format:
+{
+"Email": "email@example.com",
+"Password" : "password"
+}
+
+Response: 
+- Response is a JSON file in the following format:
+{ LoggedIn: true, Message: "User successfully logged in." }
+
+LoggedIn value will register as false if the email is unrecognized or the email and password do not match.
+
+### **GET** /newDestination/{location} - Returns Yelp API information about a specific location
+
+Parameters:
+- Function takes in the parameter 'location' from the URL
+
+Response:
+- Response is a JSON file containing a destination object, which has the following format:
+
+{
+
+        Location: [3]string{city, state, country},
+        
+        Restaurants: RestaurantList,
+        
+        Entertainment: EntertainmentList,
+        
+        Shopping: ShoppingList,
+}
+
+- Each 'list' is of length 10, and contains the names of 10 locations along with their ratings, address, type, and price.
+
+
+## Endpoints under development:
+
+### **GET** /updateDestination - Returns all saved destinations
+
+Parameters: 
+- Request body is a JSON file in the following format:
+{
+"Email": "email@example.com",
+}
+
+Response:
+- Function response is a byte slice, either stating "No user with the email address associated." or "User destination list is empty."
+
+### **PUT** /updateDestination - Saves a new location in the database
+
+Parameters: 
+- Request body is a JSON file in the following format:
+{
+"Email": "email@example.com",
+"Location" : "exampleLocation"
+}
+
+Response:
+- Function response is a byte slice, either stating "New location successfully saved." or "Location already saved."
+
+
+### **DELETE** /updateDestination - Deletes a user's saved location
+
+Parameters: 
+- Request body is a JSON file in the following format:
+{
+"Email": "email@example.com",
+"Location" : "exampleLocation"
+}
+
+Response:
+- Function response is a byte slice, either stating "Location successfully deleted." or "Account does not have location saved in order to be deleted."
+
 
 
 # **Demo Video:**
