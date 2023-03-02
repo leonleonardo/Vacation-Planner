@@ -30,7 +30,7 @@
 This API is designed to store and access user login information in a database and contact a Yelp API to return information about travel destinations, sorting through the Yelp API output to return only relevant information. In addition, users can save locations which they are interested in, and may view and edit this list by adding to it or deleting from it. Generally, this API provides users the ability to search for new travel destinations and save their favorites for future reference.
 
 ## Dependencies: 
-The only additional dependency this API requires for all of it's features to function properly is the addition of a .env file containing a private Yelp API key. A contributor must be contacted regarding this for security reasons.
+The only additional dependency this API requires for full functionality is a .env file containing a private Yelp API key. A contributor must be contacted regarding this for security reasons.
 
 ## Yelp API integration:
 This API integrates with the Yelp API to provide information to users about shopping, restaurants, and entertainment near a searched destination. Currently, the top 10 most highly rated restaurants, stores, and entertainment locations are returned, displaying their rating along with the average price, address, and the type of establishment (i.e. "French Restaurant").
